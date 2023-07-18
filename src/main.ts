@@ -1,6 +1,7 @@
 import { FeatureHeader } from './components/FeatureHeader'
 import { Separator } from './components/Separator'
 import './style.scss'
+import employees from './data/employees.json';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
 ${FeatureHeader('Interactive Buttons')}
@@ -14,6 +15,9 @@ ${FeatureHeader('Interactive Buttons')}
 ${Separator()}
 
 ${FeatureHeader('Employee Cards')}
+${employees.map(employee => {
+	return `<div class="text-gray-300">${employee.firstName} ${employee.lastName}</div>`
+})}
 ${Separator()}
 
 ${FeatureHeader('Feature 3')}
