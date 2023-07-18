@@ -2,6 +2,15 @@ import { FeatureHeader } from './components/FeatureHeader'
 import { Separator } from './components/Separator'
 import './style.scss'
 import employees from './data/employees.json';
+import axios from 'axios';
+
+const url = 'https://reqres.in/api/users';
+
+(async () => {
+	const response = await axios.get(url);
+	const persons = response.data.data;
+	console.log(persons);
+})();
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
 ${FeatureHeader('Interactive Buttons')}
